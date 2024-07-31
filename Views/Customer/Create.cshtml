@@ -1,0 +1,100 @@
+﻿@model CustomerApp.Models.Customer
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h4>Customer Details</h4>
+
+<div class="row">
+    <div class="col-md-4">
+        <hr />
+        <form asp-action="CreateCustomer">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CustomerName" class="control-label"></label><span style="color:red">  *</span>
+                <input asp-for="CustomerName" class="form-control" />
+                <span asp-validation-for="CustomerName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerAddress" class="control-label"></label><span style="color:red">  *</span>
+                <input asp-for="CustomerAddress" class="form-control" />
+                <span asp-validation-for="CustomerAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerTelephone" class="control-label"></label>
+                <input asp-for="CustomerTelephone" class="form-control" />
+                <span asp-validation-for="CustomerTelephone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContactPersonName" class="control-label"></label>
+                <input asp-for="ContactPersonName" class="form-control" />
+                <span asp-validation-for="ContactPersonName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContactPersonEmailAddress" class="control-label"></label><span style="color:red">  *</span>
+                <input asp-for="ContactPersonEmailAddress" class="form-control" />
+                <span asp-validation-for="ContactPersonEmailAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VATNumber" class="control-label"></label>
+                <input asp-for="VATNumber" class="form-control" />
+                <span asp-validation-for="VATNumber" class="text-danger"></span>
+            </div>
+            <br /> 
+            
+            <input type="hidden" asp-for="CustomerID" />
+            <input data-toggle="modal" data-target="#exampleModalCenter" value="Save" class="btn btn-success col-md-3" /> |
+            <a asp-action="ListCustomers">Back to List</a>
+
+
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Are all the details entered correct? </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <input type="submit" data-toggle="modal" data-target="#feedbackModal" value="Save" class="btn btn-success" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Details Saved Successfully !</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+</div>
+<br />
+<br />
+@*<div>
+    <a asp-action="ListCustomers">Back to List</a>
+</div>*@
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

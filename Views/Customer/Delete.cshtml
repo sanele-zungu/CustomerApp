@@ -1,0 +1,99 @@
+﻿@model CustomerApp.Models.Customer
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<h4>Delete Customer</h4>
+<div>   
+    <div class="col-md-4">
+        <form asp-action="Delete">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="CustomerID" />
+            <div class="form-group">
+                <label asp-for="CustomerName" class="control-label"></label>
+                <input disabled="true" asp-for="CustomerName" class="form-control" />
+                <span asp-validation-for="CustomerName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerAddress" class="control-label"></label>
+                <input disabled="true" asp-for="CustomerAddress" class="form-control" />
+                <span asp-validation-for="CustomerAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerTelephone" class="control-label"></label>
+                <input disabled="true" asp-for="CustomerTelephone" class="form-control" />
+                <span asp-validation-for="CustomerTelephone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContactPersonName" class="control-label"></label>
+                <input disabled="true" asp-for="ContactPersonName" class="form-control" />
+                <span asp-validation-for="ContactPersonName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContactPersonEmailAddress" class="control-label"></label>
+                <input disabled="true" asp-for="ContactPersonEmailAddress" class="form-control" />
+                <span asp-validation-for="ContactPersonEmailAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VATNumber" class="control-label"></label>
+                <input disabled="true" asp-for="VATNumber" class="form-control" />
+                <span asp-validation-for="VATNumber" class="text-danger"></span>
+            </div>
+            
+            <br /><br />
+
+            <input type="hidden" asp-for="CustomerID" />
+            <input data-toggle="modal" data-target="#exampleModalCenter" value="Delete" class="btn btn-danger col-md-3" /> |
+            <a asp-action="ListCustomers">Back to List</a>
+
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Delete Customer <span> @Html.DisplayFor(model => model.CustomerName) </span> </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Are you sure you want to delete?
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <input type="submit" data-toggle="modal" data-target="#exampleModalCenter" value="Delete" class="btn btn-danger" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+    
+    @*<form asp-action="Delete">
+
+        <input type="hidden" asp-for="CustomerID" />
+        <input  data-toggle="modal" data-target="#exampleModalCenter" value="Delete" class="btn btn-danger col-md-1" /> |
+        <a asp-action="ListCustomers">Back to List</a>
+
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Are you sure you want to delete <span> @Html.DisplayFor(model => model.CustomerName) </span> </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <input type="submit" data-toggle="modal" data-target="#exampleModalCenter" value="Delete" class="btn btn-danger" />
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+    </form>*@
+</div>
